@@ -27,7 +27,7 @@ jobs:
         run: htmlhint index.html
 
       - name: Lint CSS
-        run: stylelint "style.css" --config-basedir .
+        run: stylelint "style.css"
 
   build-and-push:
     needs: lint
