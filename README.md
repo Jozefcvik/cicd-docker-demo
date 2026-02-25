@@ -41,11 +41,12 @@ cd static-nginx-site
 Create this structure:
 
 ```code
-static-nginx-site/
+cicd-docker-demo/
 │
 ├── index.html
 ├── style.css
 ├── Dockerfile
+├── .stylelintrc.json
 └── .github/
     └── workflows/
         └── ci-cd.yml
@@ -65,7 +66,7 @@ static-nginx-site/
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello from Docker + GitHub Actions 🚀</h1>
+  <h1>Hello from Docker + GitHub Actions</h1>
 </body>
 </html>
 ```
@@ -82,7 +83,27 @@ body {
 
 ---
 
-### 🐳 Step 4 — Dockerfile (Nginx)
+### 🎯 Step 4 — Add Stylelint Configuration
+
+Create:
+
+```code
+.stylelintrc.json
+```
+
+Add:
+
+```json
+{
+  "extends": "stylelint-config-standard"
+}
+```
+
+Now stylelint knows which rules to use.
+
+---
+
+### 🐳 Step 5 — Dockerfile (Nginx)
 
 Create `Dockerfile`:
 
@@ -107,16 +128,6 @@ Visit:
 ```code
 http://localhost:8080
 ```
-
----
-
-### 🧹 Step 5 — Add Linting
-
-We’ll use:
-- HTML lint via htmlhint
-- CSS lint via stylelint
-
-GitHub Actions will install them.
 
 ---
 
